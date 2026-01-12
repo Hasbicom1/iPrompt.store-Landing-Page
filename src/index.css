@@ -1,0 +1,54 @@
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* Cosmic Palette */
+  --cosmic-bg-start: #0a0e27;
+  --cosmic-bg-end: #1a1035;
+  --cosmic-accent-purple: #8b5cf6;
+  --cosmic-accent-cyan: #06b6d4;
+  --cosmic-accent-pink: #ec4899;
+  --cosmic-accent-orange: #f59e0b;
+  
+  /* Glass Effect */
+  --glass-bg: rgba(255, 255, 255, 0.03);
+  --glass-border: rgba(255, 255, 255, 0.08);
+  --glass-blur: 16px;
+}
+
+@layer base {
+  body {
+    @apply bg-[#0a0e27] text-slate-200 antialiased;
+    background-image: radial-gradient(circle at 50% 0%, #1a1035 0%, #0a0e27 100%);
+  }
+}
+
+/* Custom Utilities for Glassmorphism */
+.glass-panel {
+  background: var(--glass-bg);
+  backdrop-filter: blur(var(--glass-blur));
+  -webkit-backdrop-filter: blur(var(--glass-blur));
+  border: 1px solid var(--glass-border);
+}
+
+/* Animation Utilities */
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+.animate-float-delayed {
+  animation: float 8s ease-in-out infinite;
+  animation-delay: 2s;
+}
+
+/* Typography Overrides */
+.font-mono-nums {
+  font-variant-numeric: tabular-nums;
+}
